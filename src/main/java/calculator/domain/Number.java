@@ -3,7 +3,6 @@ package calculator.domain;
 import java.math.BigInteger;
 
 public class Number {
-
     private final BigInteger value;
 
     private Number(String numberString) {

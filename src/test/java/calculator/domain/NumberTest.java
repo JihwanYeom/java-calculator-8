@@ -3,7 +3,6 @@ package calculator.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
 
 public class NumberTest {
