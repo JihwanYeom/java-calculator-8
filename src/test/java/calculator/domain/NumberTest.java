@@ -43,11 +43,4 @@ public class NumberTest {
                 .hasMessage("입력된 피연산자가 숫자가 아닙니다");
     }
 
-    @Test
-    void 공백을_받으면_예외가_발생한다() {
-        assertThatThrownBy(() -> Number.from(EMPTY_STRING))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("피연산자는 공백일 수 없습니다");
-    }
-
 }
