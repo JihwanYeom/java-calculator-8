@@ -19,6 +19,17 @@ public class NumberTest {
     }
 
     @Test
+    void 다른_Number_객체를_받아_Number의_값을_더한_Number를_반환한다() {
+        Number number1 = Number.from("1");
+        Number number2 = Number.from("2");
+
+        Number result = number1.add(number2);
+
+        Number expect = Number.from("3");
+        assertThat(result).isEqualTo(expect);
+    }
+
+    @Test
     void 음수를_받으면_예외가_발생한다() {
         assertThatThrownBy(() -> Number.from(NEGATIVE_NUMBER))
                 .isInstanceOf(IllegalArgumentException.class)

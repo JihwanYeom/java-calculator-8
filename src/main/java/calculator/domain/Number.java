@@ -10,20 +10,34 @@ public class Number {
         value = new BigInteger(numberString);
     }
 
+    private Number(BigInteger number) {
+        this.value = number;
+    }
+
     public static Number from(String numberString) {
+        if(numberString.isEmpty()) {
+            return new Number("0");
+        }
         return new Number(numberString);
     }
 
     private void validate(String numberString) {
-        if(numberString.isEmpty()) {
-            throw new IllegalArgumentException("피연산자는 공백일 수 없습니다");
-        }
+
         if(numberString.matches("^-\\d+$")) {
             throw new IllegalArgumentException("피연산자는 양수여야 합니다");
         }
         if(!numberString.matches("^\\d+$")) {
             throw new IllegalArgumentException("입력된 피연산자가 숫자가 아닙니다");
         }
+    }
+
+    public Number add(Number number) {
+        return new Number(this.value.add(number.value));
+    }
+
+    @Override
+    public String toString() {
+        return value.toString();
     }
 
     @Override

@@ -1,21 +1,20 @@
 package calculator.domain;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class InputString {
 
     private final String numberString;
     private final String delimiterString;
-    private final Parser parser;
 
     private InputString(String numberString, String delimiterString) {
         this.numberString = numberString;
         this.delimiterString = delimiterString;
-        this.parser = new Parser();
     }
 
     public static InputString from(String inputString) {
-        String[] line = inputString.split("\n");
+        String[] line = inputString.split("\\\\n");
         String numberString;
         String delimiterString = "";
         if(line.length == 1) {
@@ -27,11 +26,18 @@ public class InputString {
         return new InputString(numberString, delimiterString);
     }
 
-    public Delimiter extractDelimiter() {
-        return parser.parseDelimiter(delimiterString);
+    public static InputString of(String numberString, String delimiterString) {
+        return new InputString(numberString, delimiterString);
     }
 
-    public Numbers extractNumbers(Delimiters delimiters) {
+    public Optional<Delimiter> extractDelimiter(Parser parser) {
+        if (delimiterString.isEmpty()) {
+            return Optional.empty();
+        }
+        return Optional.of(parser.parseDelimiter(delimiterString));
+    }
+
+    public Numbers extractNumbers(Delimiters delimiters, Parser parser) {
         return Numbers.from(parser.parseNumber(numberString, delimiters));
     }
 

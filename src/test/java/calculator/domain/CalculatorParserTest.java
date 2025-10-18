@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class ParserTest {
+public class CalculatorParserTest {
 
     private static final String TEST_DEFAULT_NUMBER_INPUT = "1,2:3";
     private static final String TEST_CUSTOM_NUMBER_INPUT = "1;2;3";
@@ -14,7 +14,7 @@ public class ParserTest {
 
     @Test
     void 문자열을_받아_기본_구분자로_구분된_숫자들을_반환해야한다() {
-        Parser parser = new Parser();
+        Parser parser = new CalculatorParser();
         List<Number> numbers = parser.parseNumber(TEST_DEFAULT_NUMBER_INPUT, new Delimiters());
 
         assertThat(numbers).hasSize(3);
@@ -25,7 +25,7 @@ public class ParserTest {
 
     @Test
     void 문자열을_받아_커스텀_구분자로_구분된_숫자들을_반환해야한다() {
-        Parser parser = new Parser();
+        Parser parser = new CalculatorParser();
         Delimiters delimiters = new Delimiters();
         delimiters.add(Delimiter.from(";"));
         List<Number> numbers = parser.parseNumber(TEST_CUSTOM_NUMBER_INPUT, delimiters);
@@ -38,7 +38,7 @@ public class ParserTest {
 
     @Test
     void 문자열을_받아_구분자를_반환해야한다() {
-        Parser parser = new Parser();
+        Parser parser = new CalculatorParser();
         Delimiter delimiter = parser.parseDelimiter(TEST_DELIMITER_INPUT);
 
         assertThat(delimiter).isEqualTo(Delimiter.from(";"));
@@ -46,7 +46,7 @@ public class ParserTest {
 
     @Test
     void 구분자_정의_형식이_잘못된_경우_예외가_발생한다() {
-        Parser parser = new Parser();
+        Parser parser = new CalculatorParser();
 
         assertThatThrownBy(() -> parser.parseDelimiter(INVALID_DELIMITER_INPUT))
                 .isInstanceOf(IllegalArgumentException.class)
