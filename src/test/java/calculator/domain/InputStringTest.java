@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 
 public class InputStringTest {
-
     Parser parser = new TestParser();
 
     @Test

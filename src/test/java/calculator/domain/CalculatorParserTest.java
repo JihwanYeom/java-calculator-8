@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CalculatorParserTest {
-
     private static final String TEST_DEFAULT_NUMBER_INPUT = "1,2:3";
     private static final String TEST_CUSTOM_NUMBER_INPUT = "1;2;3";
     private static final String TEST_DELIMITER_INPUT = "//;";

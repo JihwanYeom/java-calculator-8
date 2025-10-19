@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 
 public class NumberTest {
-
     private static final String VERY_BIG_NUMBER = "123456789012345678901234567890123456789012345678901234567890";
     private static final String NEGATIVE_NUMBER = "-123456789";
     private static final String NOT_NUMBER = "1A2B3C4B";

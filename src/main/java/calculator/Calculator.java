@@ -30,4 +30,5 @@ public class Calculator {
 
         outputView.printResult(sum);
     }
+
 }

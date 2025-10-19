@@ -15,4 +15,5 @@ class TestParser implements Parser {
     public List<Number> parseNumber(String numberString, Delimiters delimiters) {
         return List.of(Number.from("1"), Number.from("2"), Number.from("3"));
     }
+
 }

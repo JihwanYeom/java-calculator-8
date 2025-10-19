@@ -5,4 +5,5 @@ public class Application {
         Calculator calculator = new Calculator();
         calculator.calculateSum();
     }
+
 }

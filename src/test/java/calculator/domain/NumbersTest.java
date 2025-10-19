@@ -6,7 +6,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class NumbersTest {
-
     @Test
     void 저장된_모든_Number값을_더한_결과를_Number로_반환한다() {
         Numbers numbers = Numbers.from(List.of(

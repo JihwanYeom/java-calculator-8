@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CalculatorParser implements Parser {
-
     private static final String DELIMITER_PREFIX = "//";
 
     public List<Number> parseNumber(String numberInput, Delimiters delimiters) {

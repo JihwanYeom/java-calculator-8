@@ -4,7 +4,6 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class InputString {
-
     private final String numberString;
     private final String delimiterString;
 
@@ -54,4 +53,5 @@ public class InputString {
     public int hashCode() {
         return Objects.hash(numberString, delimiterString);
     }
+
 }
